@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="wilv__barPadding">5dp</dimen>
+    <dimen name="wilv__barMargin">3dp</dimen>
+    <dimen name="wilv__textLeading">1.2dp</dimen>
+    <dimen name="wilv__fontSize">13sp</dimen>
+    <dimen name="wilv__previewTextSizeDefault">22sp</dimen>
+</resources>

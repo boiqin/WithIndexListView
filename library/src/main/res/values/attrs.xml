@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WILV">
+        <attr name="indexBarFontSize" format="dimension" />
+        <attr name="indexBarBackground" format="color"/>
+        <attr name="indexBarAlpha" format="float"/>
+        <attr name="indexBarPadding" format="dimension"/>
+        <attr name="indexBarMargin" format="dimension"/>
+        <attr name="indexBarTextColor" format="color"/>
+        <attr name="showPreview" format="boolean"/>
+    </declare-styleable>
+</resources>
