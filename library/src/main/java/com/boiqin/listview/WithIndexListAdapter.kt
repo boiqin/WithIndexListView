@@ -1,4 +1,4 @@
-package com.boji.listview
+package com.boiqin.listview
 
 import android.widget.BaseAdapter
 import android.widget.BaseExpandableListAdapter
@@ -8,7 +8,7 @@ import android.widget.BaseExpandableListAdapter
  */
 abstract class WithIndexExpandableListAdapter : BaseExpandableListAdapter(), IWithIndex
 
-abstract class WithIndexListViewAdapter : BaseAdapter(), IWithIndex
+abstract class WithIndexListAdapter : BaseAdapter(), IWithIndex
 
 interface IWithIndex {
     val indexList: List<String>

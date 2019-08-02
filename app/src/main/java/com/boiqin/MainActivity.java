@@ -1,8 +1,8 @@
-package com.boji.withindexlistview;
+package com.boiqin;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import com.boji.listview.WithIndexExpandableListView;
+import com.boiqin.listview.WithIndexExpandableListView;
 
 import java.util.ArrayList;
 import java.util.List;

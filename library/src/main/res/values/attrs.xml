@@ -6,6 +6,7 @@
         <attr name="indexBarAlpha" format="float"/>
         <attr name="indexBarPadding" format="dimension"/>
         <attr name="indexBarMargin" format="dimension"/>
+        <attr name="leading" format="dimension"/>
         <attr name="indexBarTextColor" format="color"/>
         <attr name="showPreview" format="boolean"/>
     </declare-styleable>
