@@ -1,6 +1,7 @@
 # WithIndexListView
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Download](https://api.bintray.com/packages/cbasc1989/com.boiqin/WithIndexListView/images/download.svg?version=1.0.1)](https://bintray.com/cbasc1989/com.boiqin/WithIndexListView/1.0.1/link)
-Android的带索引的列表控件。   
+### Android带索引的列表控件。   
 
 本控件的发布离不开[https://github.com/xingty/IndexableExpandableListView](https://github.com/xingty/IndexableExpandableListView)，在此非常感谢作者的分享。
 
