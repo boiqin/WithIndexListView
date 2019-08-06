@@ -45,7 +45,7 @@ publish {
     groupId = 'com.boiqin'
     repoName = 'com.boiqin'
     artifactId = 'WithIndexListView'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'WithIndexListView'
     website = 'https://github.com/boiqin/WithIndexListView'
 }
