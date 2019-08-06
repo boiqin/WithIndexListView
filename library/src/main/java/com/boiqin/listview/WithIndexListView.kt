@@ -37,7 +37,7 @@ class WithIndexListView @JvmOverloads constructor(
     ListView(context, attrs, defStyleAttr) {
 
     private var mBar: IndexBar? = null
-
+    private var mAdapter: WithIndexListAdapter? = null
     private var mIsWithIndex: Boolean = false
 
     init {
@@ -85,10 +85,11 @@ class WithIndexListView @JvmOverloads constructor(
                 val y = event.y
 
                 mBar?.apply {
-                    if (this.isTouchInside(x, y)) {
-                        this.mIsIndexing = true
-                        this.mCurrentIndex = getIndexByPoint(y)
-                        setSelection(this.mCurrentIndex)
+                    if (isTouchInside(x, y)) {
+                        mIsIndexing = true
+                        mCurrentIndex = getIndexByPoint(y)
+                        setSelection(mCurrentIndex)
+                        mAdapter?.onIndexSelect(mCurrentIndex)
                         return true
                     }
                 }
@@ -96,9 +97,10 @@ class WithIndexListView @JvmOverloads constructor(
 
             MotionEvent.ACTION_MOVE -> {
                 mBar?.apply {
-                    if (this.mIsIndexing) {
-                        this.mCurrentIndex = getIndexByPoint(event.y)
-                        setSelection(this.mCurrentIndex)
+                    if (mIsIndexing) {
+                        mCurrentIndex = getIndexByPoint(event.y)
+                        setSelection(mCurrentIndex)
+                        mAdapter?.onIndexSelect(mCurrentIndex)
                         return true
                     }
                 }
@@ -112,12 +114,9 @@ class WithIndexListView @JvmOverloads constructor(
                         invalidate()
                         return true
                     }
-
                 }
-
             }
         }
-
         return super.onTouchEvent(event)
     }
 
@@ -134,9 +133,9 @@ class WithIndexListView @JvmOverloads constructor(
     }
 
     fun setWithIndexAdapter(adapter: WithIndexListAdapter) {
+        mAdapter = adapter
         setAdapter(adapter)
         mBar?.mIndexList = adapter.indexList
         mIsWithIndex = true
     }
-
 }

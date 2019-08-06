@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
+
 
 android {
     compileSdkVersion 28
@@ -9,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 101
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -36,4 +38,14 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+publish {
+    userOrg = 'cbasc1989'
+    groupId = 'com.boiqin'
+    repoName = 'com.boiqin'
+    artifactId = 'WithIndexListView'
+    publishVersion = '1.0.0'
+    desc = 'WithIndexListView'
+    website = 'https://github.com/boiqin/WithIndexListView'
 }

@@ -37,7 +37,7 @@ class WithIndexExpandableListView @JvmOverloads constructor(
     ExpandableListView(context, attrs, defStyleAttr) {
 
     private var mBar: IndexBar? = null
-
+    private var mAdapter: WithIndexExpandableListAdapter? = null
     private var mIsWithIndex: Boolean = false
 
     init {
@@ -85,10 +85,11 @@ class WithIndexExpandableListView @JvmOverloads constructor(
                 val y = event.y
 
                 mBar?.apply {
-                    if (this.isTouchInside(x, y)) {
-                        this.mIsIndexing = true
-                        this.mCurrentIndex = getIndexByPoint(y)
+                    if (isTouchInside(x, y)) {
+                        mIsIndexing = true
+                        mCurrentIndex = getIndexByPoint(y)
                         setSelectedGroup(mCurrentIndex)
+                        mAdapter?.onIndexSelect(mCurrentIndex)
                         return true
                     }
                 }
@@ -96,9 +97,10 @@ class WithIndexExpandableListView @JvmOverloads constructor(
 
             MotionEvent.ACTION_MOVE -> {
                 mBar?.apply {
-                    if (this.mIsIndexing) {
-                        this.mCurrentIndex = getIndexByPoint(event.y)
-                        setSelectedGroup(this.mCurrentIndex)
+                    if (mIsIndexing) {
+                        mCurrentIndex = getIndexByPoint(event.y)
+                        setSelectedGroup(mCurrentIndex)
+                        mAdapter?.onIndexSelect(mCurrentIndex)
                         return true
                     }
                 }
@@ -134,6 +136,7 @@ class WithIndexExpandableListView @JvmOverloads constructor(
     }
 
     fun setWithIndexAdapter(adapter: WithIndexExpandableListAdapter) {
+        mAdapter = adapter
         setAdapter(adapter)
         mBar?.mIndexList = adapter.indexList
         mIsWithIndex = true

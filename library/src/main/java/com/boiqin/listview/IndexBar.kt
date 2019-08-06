@@ -73,13 +73,11 @@ internal data class IndexBar(
 
     fun initSize(width: Float, height: Float) {
         initPaint()
-
         mWidth = calculateIndexBarWidth()
         mHeight = calculateIndexBarHeight(height)
         initRect(width, height)
         initPreviewRect(width, height)
     }
-
 
     private fun initRect(listViewWidth: Float, listViewHeight: Float) {
         val left = listViewWidth - mWidth - barMargin
@@ -122,7 +120,7 @@ internal data class IndexBar(
                     var textHeight = paint.descent() - paint.ascent() + leading
 
                     if (maxHeight < textHeight) {
-                        val fontSize = getTextSize(maxHeight, textHeight)
+                        val fontSize = getTextSize(maxHeight)
                         paint.textSize = fontSize
                         //新字体大小的文字高度
                         textHeight = paint.descent() - paint.ascent() + leading
@@ -135,7 +133,7 @@ internal data class IndexBar(
         return 0f
     }
 
-    private fun getTextSize(maxHeight: Float, textHeight: Float): Float {
+    private fun getTextSize(maxHeight: Float): Float {
         val sp = context.resources.displayMetrics.scaledDensity
         mBarTextPaint?.let { paint ->
             val currentSize = (paint.textSize / sp).toInt()
@@ -143,14 +141,11 @@ internal data class IndexBar(
             for (i in currentSize downTo 1) {
                 tempPaint.textSize = i * sp
                 val measureHeight = tempPaint.descent() - tempPaint.ascent() + leading
-
                 if (measureHeight <= maxHeight) {
                     return i * sp
                 }
             }
         }
-
-
         return 10f // 默认字体大小
     }
 
@@ -171,7 +166,7 @@ internal data class IndexBar(
         }
     }
 
-    fun drawIndexBar(canvas: Canvas) {
+    private fun drawIndexBar(canvas: Canvas) {
         mBarBgPaint?.let { paint ->
             if (paint.alpha >= 0) {
                 mRect?.run {
@@ -184,9 +179,9 @@ internal data class IndexBar(
 
     /**
      * draw text on index bar
-     * @param canvas 画布
+     * @param canvas
      */
-    fun drawText(canvas: Canvas) {
+    private fun drawText(canvas: Canvas) {
         mBarTextPaint?.let { paint ->
             val textHeight = paint.descent() - paint.ascent() + leading
             mIndexList?.forEachIndexed { index, text ->
@@ -202,9 +197,9 @@ internal data class IndexBar(
 
     /**
      * draw preview
-     * @param canvas ExpandableListview's canvas
+     * @param canvas ListView's canvas
      */
-    fun drawPreview(canvas: Canvas) {
+    private fun drawPreview(canvas: Canvas) {
         mPreviewBgPaint?.let {
             if (mCurrentIndex < 0) {
                 return

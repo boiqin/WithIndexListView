@@ -1,4 +1,5 @@
 # WithIndexListView
+[ ![Download](https://api.bintray.com/packages/cbasc1989/maven/WithIndexListView/images/download.svg?version=1.0.0) ](https://bintray.com/cbasc1989/maven/WithIndexListView/1.0.0/link)
 相信大家都看过IOS的TableView字母快速索引功能,如果列表数据比较多,快速索引确实非常好用。而且IOS的TableView设置索引非常方便,只需要返回一个分组数组即可。反观Android并没有这么方便的控件，于是便自己写了一个。   
 
 本控件的发布离不开[https://github.com/xingty/IndexableExpandableListView](https://github.com/xingty/IndexableExpandableListView)，在此非常感谢作者的分享。
